@@ -2,7 +2,7 @@ import React from 'react';
 import classes from "./PostWithImage.module.css";
 import classNames from "classnames";
 
-const PostWithImage = ({date, img, author, description, header, id, ...rest}) => {
+const PostWithImage = ({date, img, author, description, header, postId, ...rest}) => {
 
   const btnClass = classNames("primary", classes.readMore);
   const postClass = classNames({
@@ -10,7 +10,7 @@ const PostWithImage = ({date, img, author, description, header, id, ...rest}) =>
     [rest.className]: rest.className,
   });
 
-  const linkUrl = `/posts/${id}`;
+  const linkUrl = `/posts/${postId}`;
 
   return (
     <div className={postClass}>

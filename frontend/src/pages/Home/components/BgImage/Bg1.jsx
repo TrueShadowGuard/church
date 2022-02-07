@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from "./Bg1.module.css";
-import bg1 from "../../../../images/home/Home_bg1.svg";
+import bg1 from "../../../../images/home/Home_bg1.jpg";
 import Container from "../../../../common-components/Container/Container";
 
 const Bg1 = () => {

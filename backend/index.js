@@ -2,8 +2,9 @@ import express from "express";
 import * as path from "path";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import createExamplePost from "./test/createExamplePost.js";
+import createExamplePosts from "./test/createExamplePosts.js";
 import postsRouter from "./routers/postsRouter.js";
+import resetCounters from "./test/dropCounters.js";
 
 dotenv.config();
 const app = express();

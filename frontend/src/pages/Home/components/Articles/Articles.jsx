@@ -2,6 +2,8 @@ import React from 'react';
 import classes from "./Articles.module.css";
 import classNames from "classnames";
 import PostPreview from "../../../../common-components/PostPreview/PostPreview";
+import {useState, useEffect} from "react";
+import PostsService from "../../../../network/postsService.js";
 
 const Articles = (props) => {
   const articlesClassName = classNames({
@@ -9,32 +11,24 @@ const Articles = (props) => {
     [props.className]: props.className
   });
 
+  const [posts, setPosts] = useState();
+  useEffect(() => {
+    PostsService
+      .getMany({last: true, count: 4})
+      .then(setPosts)
+  }, []);
+
   return (
     <div className={articlesClassName}>
-      <PostPreview author={"Mathew Johnson"}
-                   type={"Relationship"}
-                   header={"WATCH AND LISTEN TO OUR SERMONS"}
-                   description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."}
-                   date={new Date()}
-      />
-      <PostPreview author={"Mathew Johnson"}
-                   type={"Relationship"}
-                   header={"WATCH AND LISTEN TO OUR SERMONS"}
-                   description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."}
-                   date={new Date()}
-      />
-      <PostPreview author={"Mathew Johnson"}
-                   type={"Relationship"}
-                   header={"WATCH AND LISTEN TO OUR SERMONS"}
-                   description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."}
-                   date={new Date()}
-      />
-      <PostPreview author={"Mathew Johnson"}
-                   type={"Relationship"}
-                   header={"WATCH AND LISTEN TO OUR SERMONS"}
-                   description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."}
-                   date={new Date()}
-      />
+      {!!posts && posts.map(post => (
+        <PostPreview author={post.author}
+                     type={post.type}
+                     header={post.header}
+                     description={post.description}
+                     date={post.date}
+                     postId={post._id}
+        />
+      ))}
     </div>
   );
 };

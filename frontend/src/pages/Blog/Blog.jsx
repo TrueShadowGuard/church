@@ -8,8 +8,18 @@ import Subheader from "../../common-components/Subheader/Subheader";
 
 import postImg from "../../images/blog/post_img.png";
 import PostPreview from "../../common-components/PostPreview/PostPreview";
+import {useState, useEffect} from "react";
+import PostsService from "../../network/postsService.js";
 
 const Blog = () => {
+  const [posts, setPosts] = useState()
+
+  useEffect(() => {
+    PostsService
+      .getMany({last: true, count: 7})
+      .then(setPosts)
+  }, []);
+
   return (
     <>
      <Navbar />
@@ -22,67 +32,23 @@ const Blog = () => {
                         header={"Church was doing what he often did when dropped An oracle "}
                         description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor."}
                         img={postImg}
-                        id={8}
+                        postId={8}
          />
        </Container>
 
        <Container maxWidth={"1310px"}>
          <h2 className={classes.header2}>ALL BLOG POSTS</h2>
          <div className={classes.posts}>
-           <PostPreview type={"Relationship"}
-                        description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."}
-                        author={"Mathew Johnson"}
-                        header={"THE BEST WAY TO INSPIRE PEOPLE"}
-                        date={new Date()}
-                        postId={1}
-                        white
-           />
-           <PostPreview type={"Relationship"}
-                        description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."}
-                        author={"Mathew Johnson"}
-                        header={"THE BEST WAY TO INSPIRE PEOPLE"}
-                        date={new Date()}
-                        postId={1}
-                        white
-           />
-           <PostPreview type={"Relationship"}
-                        description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."}
-                        author={"Mathew Johnson"}
-                        header={"THE BEST WAY TO INSPIRE PEOPLE"}
-                        date={new Date()}
-                        postId={1}
-                        white
-           />
-           <PostPreview type={"Relationship"}
-                        description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."}
-                        author={"Mathew Johnson"}
-                        header={"THE BEST WAY TO INSPIRE PEOPLE"}
-                        date={new Date()}
-                        postId={1}
-                        white
-           />
-           <PostPreview type={"Relationship"}
-                        description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."}
-                        author={"Mathew Johnson"}
-                        header={"THE BEST WAY TO INSPIRE PEOPLE"}
-                        date={new Date()}
-                        postId={1}
-                        white
-           />
-           <PostPreview type={"Relationship"}
-                        description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."}
-                        author={"Mathew Johnson"}
-                        header={"THE BEST WAY TO INSPIRE PEOPLE"}
-                        date={new Date()}
-                        white
-           />
-           <PostPreview type={"Relationship"}
-                        description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."}
-                        author={"Mathew Johnson"}
-                        header={"THE BEST WAY TO INSPIRE PEOPLE"}
-                        date={new Date()}
-                        white
-           />
+           {!!posts && posts.map(post => (
+             <PostPreview type={post.type}
+                          description={post.description}
+                          author={post.author}
+                          header={post.header}
+                          date={post.date}
+                          postId={post._id}
+                          white
+             />
+           ))}
          </div>
        </Container>
      </main>

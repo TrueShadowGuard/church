@@ -3,9 +3,8 @@ import classes from "./Post.module.css";
 import {useNavigate, useParams} from "react-router";
 import Navbar from "../../common-components/Navbar/Navbar";
 import Footer from "../../common-components/Footer/Footer";
-import Subheader from "../../common-components/Subheader/Subheader";
 import {useEffect, useState} from "react";
-import posts from "../../network/posts.js";
+import PostsService from "../../network/postsService.js";
 import dayjs from "dayjs";
 import Container from "../../common-components/Container/Container.jsx";
 
@@ -16,7 +15,7 @@ const Post = () => {
     const [post, setPost] = useState();
 
     useEffect(() => {
-        posts.get(params.id).then(setPost);
+        PostsService.getOne(params.id).then(setPost);
     }, [params.id]);
 
     if (post === undefined) return <h1>Loading...</h1>;
