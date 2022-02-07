@@ -1,0 +1,47 @@
+.card {
+    max-width: 411px;
+    padding: 80px 80px 64px 80px;
+    border-bottom: 16px solid #FFD2A4;
+    background: #FFF5EB;
+}
+
+.cards h1 {
+    text-align: start;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 64px;
+    margin-bottom: 128px;
+}
+
+.header {
+    margin-top: 24px;
+    margin-bottom: 8px;
+
+    font-style: normal;
+    font-weight: bold;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    text-align: start;
+    color: #161722;
+}
+
+.text {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+@media screen and (max-width: 1000px) {
+    .cards {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .card {
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+}

@@ -1,0 +1,39 @@
+.team {
+    --gap: 24px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.team_member {
+    max-width: 302px;
+    width: 100%;
+    margin: calc(var(--gap) / 2);
+    padding: 48px 0;
+    background-color: var(--grey);
+}
+
+.avatar {
+    width: 152px;
+    height: 152px;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+    border: 8px solid #fff;
+    border-radius: 200px;
+}
+
+.name {
+    margin: 19px 0 0 0;
+}
+
+.position {
+    margin-top: 8px;
+}
+
+.soc {
+    width: 88px;
+    margin: 16px auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+}

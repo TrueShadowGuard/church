@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+@import "~font-awesome/css/font-awesome.min.css";
+
+:root {
+    --primary: #ffd2a4;
+    --black: #161722;
+    --light-orange: #FFF5EB;
+    --grey: rgba(245, 242, 240);
+}
+
+body {
+    padding: 0;
+    font-family: Roboto Condensed, sans-serif;
+    margin: 0 auto;
+    max-width: 1500px;
+    color: var(--black);
+}
+
+html, body, #root {
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    font-family: inherit;
+    color: inherit;
+    text-decoration: none;
+}
+
+input {
+    font-family: inherit;
+    color: inherit;
+}
+
+p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #161722;
+    opacity: 0.78;
+}
+
+button {
+    display: block;
+    font-family: inherit;
+    border-radius: 12px;
+    padding: 24px 64px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button.primary {
+    background: #FFD2A4;
+    color: #1C1D28;
+}
+
+button.primary:hover {
+    background-color: #F2C79B;
+}
+
+button.secondary {
+    color: #FFD2A4;
+    background: #161722;
+}
+
+button.secondary:hover {
+    background-color: #fff;
+}
+
+.nav-btn {
+    padding: 20px 48px;
+    background: #FFD2A4;
+    color: #1C1D28;
+}
+
+.nav-btn:hover {
+    background-color: #F2C79B;
+}
+
+.subheader {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #161722;
+}
+
+h1 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 128%;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #161722;
+    text-align: center;
+}
+
+h2 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 133%;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #161722;
+    text-align: center;
+}
+
+h3 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 140%;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #161722;
+    text-align: center;
+}
+
+h4 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 137%;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #161722;
+    text-align: center;
+}
+
+h5 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 116%;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #161722;
+    text-align: center;
+}
+
+h6 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 150%;
+    text-transform: uppercase;
+    color: #161722;
+    text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+    h1 {
+        font-size: 42px;
+    }
+
+    h2 {
+        font-size: 32px;
+    }
+}
+

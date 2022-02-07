@@ -1,0 +1,32 @@
+.text1 {
+    margin-bottom: 32px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #1E1B1B;
+}
+
+.form {
+    max-width: 624px;
+}
+
+.form input, .form textarea {
+    display: block;
+    margin-bottom: 12px;
+    padding: 20px;
+
+    resize: none;
+    outline: none;
+    border: none;
+    background-color: #fff;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.form input, .form textarea, .form button {
+    width: 100%;
+}

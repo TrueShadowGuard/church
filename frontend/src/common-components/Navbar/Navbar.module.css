@@ -1,0 +1,159 @@
+.bg {
+    background-color: #0D0D0D;
+    width: 100%;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fixed {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    animation: slide-top 0.2s;
+}
+
+.fixed:hover {
+    opacity: 1;
+}
+
+.nav {
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.contact_container {
+    margin-left: auto;
+}
+
+.contact {
+    padding: 20px 48px;
+    background: #FFD2A4;
+    backdrop-filter: blur(80px);
+    border-radius: 12px;
+    border: none;
+
+    font-family: Roboto Condensed, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.6em;
+    line-height: 1.6em;
+    text-align: center;
+    text-transform: uppercase;
+    color: #1C1D28;
+}
+
+.ulNav {
+    display: flex;
+    height: 100%;
+    padding: 31px 64px;
+    margin: 0;
+    border-left: 2px solid #252525;
+
+    font-family: Roboto Condensed, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.6em;
+    line-height: 1.9em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    opacity: 0.9;
+    list-style: none;
+}
+
+.ulNav > li:not(:last-child) {
+    margin-right: 48px;
+}
+
+.ulNav > li > a {
+    text-decoration: none;
+    font-family: Roboto Condensed, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    opacity: 0.9;
+}
+
+.logo {
+    font-size: 4.0em;
+    margin-right: 64px;
+    color: #fff;
+    text-decoration: none;
+}
+
+@keyframes slide-top{
+    from {
+        margin-top: -400px;
+    }
+    to {
+        margin-top: 0;
+    }
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .ulNav > li:not(:last-child) {
+        margin-right: 4px;
+    }
+
+    .contact {
+        padding: 10px 12px;
+    }
+
+    .logo {
+        margin: 0;
+    }
+
+    .ulNav {
+        border-left: none;
+        flex-grow: 1;
+        margin: 0;
+        padding: 0 8px;
+        justify-content: space-between;
+    }
+
+    .nav {
+        padding: 5px 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .ulNav {
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    .ulNav > li:not(:last-child) {
+        margin-right: 0;
+    }
+
+    .ulNav > li {
+        width: 50%;
+    }
+
+    .ulNav > li > a {
+        font-size: 12px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .contact {
+        font-size: 12px;
+    }
+}

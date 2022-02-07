@@ -1,0 +1,7 @@
+.link {
+    display: block;
+}
+
+.link > span {
+    margin-right: 6px;
+}

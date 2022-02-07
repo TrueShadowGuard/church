@@ -1,0 +1,50 @@
+.bg {
+    height: 736px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-size: cover;
+    background-position: center;
+}
+
+.inner {
+    padding: 72px 48px 56px 48px;
+    max-width: 768px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: 16px solid var(--primary);
+    background-color: #fff;
+}
+
+.col1 {
+    max-width: 368px;
+    text-align: start;
+}
+
+.col1 h2, .col1 p {
+    text-align: start;
+}
+
+.col2 {
+    margin-left: auto;
+}
+
+.col2 {
+    width: 100%;
+}
+
+@media screen and (max-width: 450px) {
+    .inner {
+        padding: 36px 24px 28px 24px;
+    }
+
+    .col2 {
+        display: none;
+    }
+}

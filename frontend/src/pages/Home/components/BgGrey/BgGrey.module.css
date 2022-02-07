@@ -1,0 +1,66 @@
+.bgGrey {
+    background: var(--grey);
+    padding: 128px 0;
+}
+
+.header1 {
+    max-width: 440px;
+    margin: 20px auto 64px auto;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    padding: 32px;
+    flex-direction: column;
+    width: 302px;
+    height: 384px;
+}
+
+.card > img {
+    z-index: -2;
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.card > h5 {
+    margin-top: auto;
+    margin-bottom: 16px;
+
+    text-align: left;
+    color: #fff;
+}
+
+.card > p {
+    text-align: left;
+    color: #fff;
+}
+
+.overlay {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(184.38deg, rgba(6, 6, 6, 0.76) 16.68%, rgba(0, 0, 0, 0.02) 96.44%);
+    transform: matrix(1, 0, 0, -1, 0, 0);
+}
+
+@media screen and (max-width: 1250px) {
+    .cards {
+        justify-content: center;
+        gap: 10px;
+    }
+}

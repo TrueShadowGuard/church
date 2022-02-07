@@ -1,0 +1,120 @@
+.event {
+    display: flex;
+}
+
+.date {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    text-align: center;
+}
+
+.date > span:first-child {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #161722;
+}
+
+.date > span:last-child {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: #161722;
+}
+
+.col1 {
+    position: relative;
+    padding: 61px 90px;
+    background-color: var(--light-orange);
+    max-width: 435px;
+}
+
+.col2 {
+    flex-grow: 1;
+}
+
+.col2 > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text1 {
+    color: rgba(220, 152, 83, 1);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.header {
+    margin-top: 16px;
+    text-align: start;
+}
+
+.description {
+    margin-top: 16px;
+    text-align: start;
+}
+
+.day, .place {
+    line-height: 24px;
+    font-size: 16px;
+}
+
+.day {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 32px;
+}
+
+.day > img {
+    margin-right: 16px;
+}
+
+.place {
+    margin-top: 16px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.place > img {
+    margin-right: 16px;
+}
+
+.register {
+    margin-top: 32px;
+}
+
+@media screen and (max-width: 1050px) {
+    .event {
+        flex-wrap: wrap;
+    }
+
+    .col1 {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .col1 {
+        padding: 10px 30px;
+    }
+
+    .date {
+        position: static;
+    }
+
+    .register {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

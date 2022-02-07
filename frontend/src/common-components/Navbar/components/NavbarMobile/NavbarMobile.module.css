@@ -1,0 +1,32 @@
+.navbar {
+    background-color: #0D0D0D;
+    color: #fff;
+    padding: 10px 0 ;
+}
+
+.logo {
+    color: #fff;
+    text-align: center;
+    font-size: 54px;
+    font-weight: 500;
+}
+
+.menuButton {
+    margin: 10px auto;
+    padding: 10px 40px 0px;
+    background-color: #fff;
+}
+
+.ulNav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.ulNav > * {
+    width: 100%;
+    padding: 20px 0;
+    border-top: 1px solid #fff;
+}
+

@@ -1,0 +1,48 @@
+.post {
+    max-width: 302px;
+    padding: 48px 32px 32px 32px;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--light-orange);
+    border-bottom: 16px solid var(--primary);
+}
+
+.post * {
+    text-align: start;
+}
+
+.white {
+    background-color: #fff;
+}
+
+.text1 {
+    color: rgba(220, 152, 83, 1);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.header {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.author {
+    margin-top: 48px;
+    line-height: 21px;
+}
+
+.date {
+    line-height: 24px;
+}
+
+@media screen and (max-width: 1250px) {
+    .post {
+        margin: 10px;
+    }
+}

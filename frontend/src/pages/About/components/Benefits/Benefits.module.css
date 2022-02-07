@@ -1,0 +1,43 @@
+.benefit {
+    display: flex;
+    align-items: center;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.benefit:first-child {
+    margin-top: 64px;
+}
+
+.benefit__text {
+    padding: 82px 0 82px 48px;
+}
+
+.benefit__text * {
+    text-align: start;
+}
+
+.benefit:nth-child(2n - 1) .benefit__text {
+    order: -1;
+}
+
+.benefit__text h4 {
+    margin-bottom: 16px;
+}
+
+@media screen and (max-width: 1020px) {
+    .benefit {
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+
+    .benefit:nth-child(n) .benefit__text {
+        order: -1;
+    }
+
+    .benefit__text {
+        padding: 0;
+    }
+}

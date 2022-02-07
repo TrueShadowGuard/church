@@ -1,0 +1,28 @@
+.main {
+    background-color: var(--grey);
+}
+
+.subheader1 {
+    padding-top: 128px;
+}
+
+.header1 {
+    margin-top: 16px;
+    margin-bottom: 64px;
+}
+
+.header2 {
+    margin-top: 128px;
+}
+
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 128px;
+}
+
+.posts > * {
+    margin: 12px;
+}
+

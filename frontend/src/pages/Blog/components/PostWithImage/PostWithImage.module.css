@@ -1,0 +1,48 @@
+.post {
+    padding: 56px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+}
+
+.post * {
+    text-align: start;
+}
+
+.img {
+    max-width: 100%;
+}
+
+.text {
+    margin-left: 48px;
+}
+
+.date_and_author {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header {
+    margin: 12px 0 16px 0;
+}
+
+.readMore {
+    margin-top: 32px;
+}
+
+@media screen and (max-width: 1200px) {
+    .post {
+        flex-wrap: wrap;
+    }
+
+    .text {
+        margin-left: 0;
+        margin-top: 16px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .post {
+        padding: 12px;
+    }
+}
