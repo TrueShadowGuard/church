@@ -15,8 +15,10 @@ import bimg4 from "../../images/about/benefits/img4.jpg";
 import Benefits from "./components/Benefits/Benefits";
 import Container from "../../common-components/Container/Container";
 import OurTeam from "./components/OurTeam/OurTeam";
+import useScrollRestoration from "../../hooks/useScrollRestoration.js";
 
 const About = () => {
+    useScrollRestoration();
     return (
         <>
             <Navbar/>

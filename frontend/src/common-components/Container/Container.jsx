@@ -14,7 +14,7 @@ const Container = props => {
   });
 
   return (
-    <div style={style} className={className}>
+    <div {...props} style={style} className={className}>
       {props.children}
     </div>
   );

@@ -1,5 +1,6 @@
 .main {
     background-color: var(--grey);
+    padding-bottom: 128px;
 }
 
 .subheader1 {
@@ -19,10 +20,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-bottom: 128px;
 }
 
 .posts > * {
     margin: 12px;
 }
 
+.show_more_button {
+    margin: 16px auto 0 auto;
+}

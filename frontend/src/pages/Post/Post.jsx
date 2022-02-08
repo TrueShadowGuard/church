@@ -7,6 +7,7 @@ import {useEffect, useState} from "react";
 import PostsService from "../../network/postsService.js";
 import dayjs from "dayjs";
 import Container from "../../common-components/Container/Container.jsx";
+import Spinner2 from "../../common-components/Spinner2/Spinner2.jsx";
 
 const Post = () => {
     const params = useParams();
@@ -15,10 +16,11 @@ const Post = () => {
     const [post, setPost] = useState();
 
     useEffect(() => {
-        PostsService.getOne(params.id).then(setPost);
+        PostsService.getOne(params.id).then(response => setPost(response.data));
     }, [params.id]);
 
-    if (post === undefined) return <h1>Loading...</h1>;
+    if (post === undefined) return <Spinner2 />
+
     if (post === null) {
         navigate("/not-found");
         return null;

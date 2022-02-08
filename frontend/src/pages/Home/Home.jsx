@@ -17,8 +17,10 @@ import Container from "../../common-components/Container/Container";
 import BgImage2 from "./components/BgImage2/BgImage2";
 import Articles from "./components/Articles/Articles";
 import Subheader from "../../common-components/Subheader/Subheader";
+import useScrollRestoration from "../../hooks/useScrollRestoration.js";
 
 const Home = () => {
+  useScrollRestoration();
 
   return (
     <div className={classes.home}>

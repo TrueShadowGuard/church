@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from "./PostPreview.module.css";
 import classNames from "classnames";
+import {NavLink} from "react-router-dom";
 
 const PostPreview = ({type, header, description, author, date, postId, ...rest}) => {
   const className = classNames({
@@ -12,7 +13,7 @@ const PostPreview = ({type, header, description, author, date, postId, ...rest})
   const url = "/posts/" + postId;
 
   return (
-    <a href={url}>
+    <NavLink to={url}>
       <div className={className}>
         <div className={classes.text1}>{type}</div>
         <h2 className={classes.header} title={header}>{header}</h2>
@@ -24,7 +25,7 @@ const PostPreview = ({type, header, description, author, date, postId, ...rest})
           Tuesday 13 May, 2021
         </div>
       </div>
-    </a>
+    </NavLink>
   );
 };
 

@@ -8,8 +8,10 @@ import Container from "../../common-components/Container/Container";
 import fb from "../../images/common/fb_black.svg";
 import twitter from "../../images/common/twitter_black.svg";
 import linkedin from "../../images/common/linkedin_black.svg";
+import useScrollRestoration from "../../hooks/useScrollRestoration.js";
 
 const Contact = () => {
+  useScrollRestoration();
   return (
     <>
       <Navbar />

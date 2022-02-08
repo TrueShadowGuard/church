@@ -9,8 +9,10 @@ import UpcomingEvent from "../../common-components/UpcomingEvent/UpcomingEvent";
 import SermonPoster from "../../images/home/SermonPoster.png";
 import Container from "../../common-components/Container/Container";
 import EventCard from "../../common-components/EventCard/EventCard";
+import useScrollRestoration from "../../hooks/useScrollRestoration.js";
 
 const Sermons = () => {
+  useScrollRestoration();
   return (
     <>
       <Navbar />

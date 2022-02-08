@@ -15,7 +15,7 @@ const Articles = (props) => {
   useEffect(() => {
     PostsService
       .getMany({last: true, count: 4})
-      .then(setPosts)
+      .then(response => setPosts(response.data))
   }, []);
 
   return (

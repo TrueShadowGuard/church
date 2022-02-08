@@ -5,6 +5,7 @@ import classes from "./Footer.module.css";
 import twitter from "../../images/home/twitter.svg";
 import linkedin from "../../images/home/linkedin.svg";
 import facebook from "../../images/home/facebook.svg";
+import {NavLink} from "react-router-dom";
 
 
 const Footer = () => {
@@ -25,24 +26,24 @@ const Footer = () => {
 
           <div className={classes.quicklinks}>
             <h1>Quicklinks</h1>
-            <a href="/about">About us</a>
-            <a href="/sermons">Sermons</a>
-            <a href="/events">Events</a>
-            <a href="/blog">Blog</a>
+            <NavLink to="/about">About us</NavLink>
+            <NavLink to="/sermons">Sermons</NavLink>
+            <NavLink to="/events">Events</NavLink>
+            <NavLink to="/blog">Blog</NavLink>
           </div>
 
           <div className={classes.connect}>
             <h1>Connect</h1>
             <div className={classes.soc}>
-              <a href="">
+              <NavLink to="">
                 <img alt="twitter" src={twitter} />
-              </a>
-              <a href="">
+              </NavLink>
+              <NavLink to="">
                 <img alt="facebook" src={facebook} />
-              </a>
-              <a href="">
+              </NavLink>
+              <NavLink to="">
                 <img alt="linkedin" src={linkedin} />
-              </a>
+              </NavLink>
             </div>
           </div>
 

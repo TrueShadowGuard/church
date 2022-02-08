@@ -4,6 +4,7 @@ import Container from "../Container/Container";
 import {useState, useEffect, useRef} from "react";
 import classNames from "classnames";
 import NavbarMobile from "./components/NavbarMobile/NavbarMobile";
+import {NavLink} from "react-router-dom";
 
 const Navbar = () => {
 
@@ -12,8 +13,6 @@ const Navbar = () => {
   const ref = useRef();
 
   useWindowSize();
-
-  const isScreenSmall = window.matchMedia(`(max-width: 550px)`).matches;
 
   useEffect(() => {
     const onScroll = e => {
@@ -25,6 +24,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const isScreenSmall = window.matchMedia(`(max-width: 550px)`).matches;
   if(isScreenSmall) return <NavbarMobile />
 
   const className = classNames({
@@ -42,16 +42,16 @@ const Navbar = () => {
       <div className={className} ref={ref}>
         <Container>
           <nav className={classes.nav}>
-            <a className={classes.logo} href="/">Church</a>
+            <NavLink className={classes.logo} to="/">Church</NavLink>
             <ul className={classes.ulNav}>
-              <li><a href="/home">Home</a></li>
-              <li><a href="/about">About us</a></li>
-              <li><a href="/sermons">Sermon</a></li>
-              <li><a href="/blog">Blog</a></li>
+              <li><NavLink to="/home">Home</NavLink></li>
+              <li><NavLink to="/about">About us</NavLink></li>
+              <li><NavLink to="/sermons">Sermon</NavLink></li>
+              <li><NavLink to="/blog">Blog</NavLink></li>
             </ul>
-            <a href={"/contact"} className={classes.contact_container}>
+            <NavLink to={"/contact"} className={classes.contact_container}>
               <button className={classes.contact + " nav-btn"}>Contact us</button>
-            </a>
+            </NavLink>
           </nav>
         </Container>
       </div>

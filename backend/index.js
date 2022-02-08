@@ -3,7 +3,7 @@ import * as path from "path";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import createExamplePosts from "./test/createExamplePosts.js";
-import postsRouter from "./routers/postsRouter.js";
+import postsRouter from "./routers/postsRouter/postsRouter.js";
 import resetCounters from "./test/dropCounters.js";
 
 dotenv.config();
