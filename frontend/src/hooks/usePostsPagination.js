@@ -1,4 +1,4 @@
-import PostsService from "../network/postsService.js";
+import PostsService from "../network/PostsService.js";
 import {useEffect, useState, useRef} from "react";
 
 export default function usePostsPagination(options = {}) {
@@ -22,7 +22,7 @@ export default function usePostsPagination(options = {}) {
     const opt = {...options, page: currentPage};
     setLoading(true);
     PostsService
-      .getMany(opt)
+      .get(opt)
       .then(response => {
         setTotalPosts(+response.headers["x-total-count"]);
         setPosts([...posts, ...response.data]);

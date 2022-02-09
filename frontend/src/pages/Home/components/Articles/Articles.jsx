@@ -3,7 +3,7 @@ import classes from "./Articles.module.css";
 import classNames from "classnames";
 import PostPreview from "../../../../common-components/PostPreview/PostPreview";
 import {useState, useEffect} from "react";
-import PostsService from "../../../../network/postsService.js";
+import PostsService from "../../../../network/PostsService.js";
 
 const Articles = (props) => {
   const articlesClassName = classNames({
@@ -14,7 +14,7 @@ const Articles = (props) => {
   const [posts, setPosts] = useState();
   useEffect(() => {
     PostsService
-      .getMany({last: true, count: 4})
+      .get({last: true, count: 4})
       .then(response => setPosts(response.data))
   }, []);
 

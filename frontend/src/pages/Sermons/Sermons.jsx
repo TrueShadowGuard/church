@@ -5,57 +5,62 @@ import Navbar from "../../common-components/Navbar/Navbar";
 import Footer from "../../common-components/Footer/Footer";
 import Bg1 from "./components/Bg1/Bg1";
 import Subheader from "../../common-components/Subheader/Subheader";
-import UpcomingEvent from "../../common-components/UpcomingEvent/UpcomingEvent";
+import EventWithImage from "../../common-components/EventWithImage/EventWithImage.jsx";
 import SermonPoster from "../../images/home/SermonPoster.png";
 import Container from "../../common-components/Container/Container";
 import EventCard from "../../common-components/EventCard/EventCard";
 import useScrollRestoration from "../../hooks/useScrollRestoration.js";
+import {useState, useEffect} from "react";
+import EventsService from "../../network/EventsService.js";
 
 const Sermons = () => {
+
+  const [upcomingEvents, setUpcomingEvents] = useState([]);
+
+  useEffect(() => {
+    EventsService
+      .get({count: 4})
+      .then(response => setUpcomingEvents(response.data));
+  }, []);
+
+  const mostUpcomingEvent = upcomingEvents[0];
+  console.log("events", upcomingEvents);
+
   useScrollRestoration();
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <main>
-        <Bg1 />
+        <Bg1/>
         <Container>
           <Subheader className={classes.subheader1}>Upcoming SERMONS</Subheader>
           <h2 className={classes.header1}>join us and become part of something great</h2>
-          <UpcomingEvent poster={SermonPoster}
-                         date={new Date()}
-                         place={{address: "No 233 Main St. New York", city: "United States"}}
-                         header={"WATCH AND LISTEN TO OUR SERMONS"}
-                         description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."}
-          />
+          {mostUpcomingEvent && (
+            <EventWithImage poster={mostUpcomingEvent.image}
+                            id={mostUpcomingEvent._id}
+                            date={mostUpcomingEvent.date}
+                            place={mostUpcomingEvent.place}
+                            header={mostUpcomingEvent.header}
+                            description={mostUpcomingEvent.description}
+            />
+          )}
         </Container>
 
         <Container maxWidth={"1310px"}>
           <h2 className={classes.header2}>View All Events</h2>
           <div className={classes.events}>
-            <EventCard date={new Date()}
-                       place={{address: "No 233 Main St. New York", city: "United States"}}
-                       header={"100 random acts of kindness"}
-                       description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."}
-            />
-            <EventCard date={new Date()}
-                       place={{address: "No 233 Main St. New York", city: "United States"}}
-                       header={"Faith is a process, not a destination"}
-                       description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."}
-            />
-            <EventCard date={new Date()}
-                       place={{address: "No 233 Main St. New York", city: "United States"}}
-                       header={"there is nothing impossible"}
-                       description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."}
-            />
-            <EventCard date={new Date()}
-                       place={{address: "No 233 Main St. New York", city: "United States"}}
-                       header={"WATCH AND LISTEN TO OUR SERMONS"}
-                       description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."}
-            />
+            {upcomingEvents.map(event => (
+              <EventCard date={event.date}
+                         place={event.place}
+                         header={event.header}
+                         id={event._id}
+                         description={event.description}
+              />
+            ))}
           </div>
         </Container>
       </main>
-      <Footer />
+      <Footer/>
     </>
   );
 };

@@ -4,7 +4,7 @@ import {useNavigate, useParams} from "react-router";
 import Navbar from "../../common-components/Navbar/Navbar";
 import Footer from "../../common-components/Footer/Footer";
 import {useEffect, useState} from "react";
-import PostsService from "../../network/postsService.js";
+import PostsService from "../../network/PostsService.js";
 import dayjs from "dayjs";
 import Container from "../../common-components/Container/Container.jsx";
 import Spinner2 from "../../common-components/Spinner2/Spinner2.jsx";
@@ -16,7 +16,7 @@ const Post = () => {
     const [post, setPost] = useState();
 
     useEffect(() => {
-        PostsService.getOne(params.id).then(response => setPost(response.data));
+        PostsService.get({id: params.id}).then(response => setPost(response.data[0]));
     }, [params.id]);
 
     if (post === undefined) return <Spinner2 />

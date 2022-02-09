@@ -14,11 +14,3 @@ const Posts = new Schema({
 });
 
 export default model("posts", Posts);
-
-/*
-[
-{tag: h1, text: "12341ewsf"},
-{tag: p, text: "12341"},
-{tag: a, text: "12341", props: {href: "123"}},
-]
- */

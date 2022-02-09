@@ -80,6 +80,10 @@
     opacity: 0.9;
 }
 
+.ulNav > li > a:hover {
+    opacity: 1;
+}
+
 .logo {
     font-size: 4.0em;
     margin-right: 64px;

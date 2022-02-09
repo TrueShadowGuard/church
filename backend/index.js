@@ -2,9 +2,13 @@ import express from "express";
 import * as path from "path";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import createExamplePosts from "./test/createExamplePosts.js";
 import postsRouter from "./routers/postsRouter/postsRouter.js";
+import eventsRouter from "./routers/eventsRouter/eventsRouter.js";
+import Events from "./db/models/Events.js";
 import resetCounters from "./test/dropCounters.js";
+import createExampleEvents from "./test/createExampleEvents.js";
+import createExamplePosts from "./test/createExamplePosts.js";
+import Posts from "./db/models/Posts.js";
 
 dotenv.config();
 const app = express();
@@ -16,6 +20,7 @@ const mongoKey = process.env.MONGO;
 
 
 app.use("/posts", postsRouter);
+app.use("/events", eventsRouter);
 
 app.use(express.static(path.join(buildPath, "static")));
 app.get("*", (req, res) => {
@@ -25,7 +30,11 @@ app.get("*", (req, res) => {
 async function main() {
   try {
     await mongoose.connect(mongoKey);
-
+    await resetCounters();
+    await Posts.deleteMany({});
+    await Events.deleteMany({});
+    await createExamplePosts(10);
+    await createExampleEvents(10);
     app.listen(port, () => console.log(`Started at ${port}`));
   } catch (e) {
     console.error(e);

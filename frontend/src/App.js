@@ -7,6 +7,7 @@ import Blog from "./pages/Blog/Blog";
 import Post from "./pages/Post/Post";
 import Contact from "./pages/Contact/Contact";
 import React, {useEffect} from "react";
+import Sermon from "./pages/Sermon/Sermon.jsx";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path={"/about"} element={<About/>}/>
           <Route path={"/sermons"} element={<Sermons/>}/>
+          <Route path={"/sermons/:id"} element={<Sermon />}/>
           <Route path={"/blog"} element={<Blog/>}/>
           <Route path={"/contact"} element={<Contact/>}/>
           <Route path={"/posts/:id"} element={<Post/>}/>

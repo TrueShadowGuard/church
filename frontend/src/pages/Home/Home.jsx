@@ -9,7 +9,7 @@ import img2 from "../../images/common/img2.png";
 import img3 from "../../images/common/img3.png";
 import arrowRight from "../../images/home/arrow-right.svg";
 import BgGrey from "./components/BgGrey/BgGrey";
-import UpcomingEvent from "../../common-components/UpcomingEvent/UpcomingEvent";
+import EventWithImage from "../../common-components/EventWithImage/EventWithImage.jsx";
 
 import SermonPoster from "../../images/home/SermonPoster.png"
 import Link from "../../common-components/Link/Link";
@@ -57,11 +57,11 @@ const Home = () => {
         <Container>
           <Subheader className={classes.subheader4}>Upcoming SERMONS</Subheader>
           <h2 className={classes.header4}>join us and become part of something great</h2>
-          <UpcomingEvent poster={SermonPoster}
-                         date={new Date()}
-                         place={{address: "No 233 Main St. New York", city: "United States"}}
-                         header={"WATCH AND LISTEN TO OUR SERMONS"}
-                         description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."}
+          <EventWithImage poster={SermonPoster}
+                          date={new Date()}
+                          place={"No 233 Main St.\n New York"}
+                          header={"WATCH AND LISTEN TO OUR SERMONS"}
+                          description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."}
           />
         </Container>
 

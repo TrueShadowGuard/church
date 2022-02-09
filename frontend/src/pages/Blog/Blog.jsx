@@ -21,7 +21,7 @@ const Blog = () => {
   //     .then(response => setPosts(response.data))
   // }, []);
   useScrollRestoration();
-  const {posts, haveMorePosts, getMorePosts, loading} = usePostsPagination({count: 4});
+  const {posts, haveMorePosts, getMorePosts, loading} = usePostsPagination({count: 4, last: true});
 
   const mostRecentPost = posts ? posts[0] : null;
 
