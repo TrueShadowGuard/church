@@ -24,7 +24,6 @@ const Sermons = () => {
   }, []);
 
   const mostUpcomingEvent = upcomingEvents[0];
-  console.log("events", upcomingEvents);
 
   useScrollRestoration();
   return (
@@ -37,7 +36,7 @@ const Sermons = () => {
           <h2 className={classes.header1}>join us and become part of something great</h2>
           {mostUpcomingEvent && (
             <EventWithImage poster={mostUpcomingEvent.image}
-                            id={mostUpcomingEvent._id}
+                            id={mostUpcomingEvent.id}
                             date={mostUpcomingEvent.date}
                             place={mostUpcomingEvent.place}
                             header={mostUpcomingEvent.header}
@@ -53,8 +52,9 @@ const Sermons = () => {
               <EventCard date={event.date}
                          place={event.place}
                          header={event.header}
-                         id={event._id}
+                         id={event.id}
                          description={event.description}
+                         key={event.id}
               />
             ))}
           </div>

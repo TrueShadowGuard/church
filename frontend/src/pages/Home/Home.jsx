@@ -18,6 +18,7 @@ import BgImage2 from "./components/BgImage2/BgImage2";
 import Articles from "./components/Articles/Articles";
 import Subheader from "../../common-components/Subheader/Subheader";
 import useScrollRestoration from "../../hooks/useScrollRestoration.js";
+import {NavLink} from "react-router-dom";
 
 const Home = () => {
   useScrollRestoration();
@@ -37,7 +38,9 @@ const Home = () => {
         <Subheader className={classes.subheader2}>sub-headline</Subheader>
         <h2 className={classes.header2}>Love and compassion</h2>
         <p className={classes.p1}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        <button className={classes.button1 + " primary"}>Read more</button>
+        <NavLink to="/post?header=How+to+show+compassion">
+          <button className={classes.button1 + " primary"}>Read more</button>
+        </NavLink>
         <div className={classes.images}>
           <img className={classes.img1} src={img1} alt=""/>
           <img className={classes.img2} src={img2} alt=""/>
@@ -47,10 +50,10 @@ const Home = () => {
         <div className={classes.subheader3 + " subheader" }>our mission & vision</div>
         <h4 className={classes.header3}>Celebrate with us</h4>
         <p className={classes.p2}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <a className={classes.readMore} href="/">
+        <NavLink className={classes.readMore} to="/post?header=Christian+Holy+Days">
           <span>Read More</span>
           <img src={arrowRight} alt={"arrow to right"} />
-        </a>
+        </NavLink>
 
         <BgGrey/>
 

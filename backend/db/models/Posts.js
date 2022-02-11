@@ -10,7 +10,7 @@ const Posts = new Schema({
   author: {type: String, required: true},
   date: {type: Number, required: true},
   content: {type: String, required: true},
-  _id: {type: Number}
+  id: {type: Number}
 });
 
 export default model("posts", Posts);

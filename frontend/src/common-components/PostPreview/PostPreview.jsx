@@ -2,6 +2,7 @@ import React from 'react';
 import classes from "./PostPreview.module.css";
 import classNames from "classnames";
 import {NavLink} from "react-router-dom";
+import dayjs from "dayjs";
 
 const PostPreview = ({type, header, description, author, date, postId, ...rest}) => {
   const className = classNames({
@@ -10,7 +11,10 @@ const PostPreview = ({type, header, description, author, date, postId, ...rest})
     [classes.white]: rest.white
   });
 
-  const url = "/posts/" + postId;
+  const url = "/post?id=" + postId;
+
+  const dayjsDate = dayjs(date);
+  const dateString = dayjsDate.format("dddd D MMMM, YYYY")
 
   return (
     <NavLink to={url}>
@@ -22,7 +26,7 @@ const PostPreview = ({type, header, description, author, date, postId, ...rest})
           By {author}
         </div>
         <div className={classes.date}>
-          Tuesday 13 May, 2021
+          {dateString}
         </div>
       </div>
     </NavLink>

@@ -8,15 +8,18 @@ import PostsService from "../../network/PostsService.js";
 import dayjs from "dayjs";
 import Container from "../../common-components/Container/Container.jsx";
 import Spinner2 from "../../common-components/Spinner2/Spinner2.jsx";
+import {useSearchParams} from "react-router-dom";
 
 const Post = () => {
     const params = useParams();
+    let [search] = useSearchParams();
+    search = Object.fromEntries(search);
     const navigate = useNavigate();
 
     const [post, setPost] = useState();
 
     useEffect(() => {
-        PostsService.get({id: params.id}).then(response => setPost(response.data[0]));
+        PostsService.get(search).then(response => setPost(response.data[0]));
     }, [params.id]);
 
     if (post === undefined) return <Spinner2 />

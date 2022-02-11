@@ -35,15 +35,15 @@ const Footer = () => {
           <div className={classes.connect}>
             <h1>Connect</h1>
             <div className={classes.soc}>
-              <NavLink to="">
+              <a>
                 <img alt="twitter" src={twitter} />
-              </NavLink>
-              <NavLink to="">
+              </a>
+              <a>
                 <img alt="facebook" src={facebook} />
-              </NavLink>
-              <NavLink to="">
+              </a>
+              <a href="https://www.linkedin.com/in/vadim-popkov-8a6749207/">
                 <img alt="linkedin" src={linkedin} />
-              </NavLink>
+              </a>
             </div>
           </div>
 

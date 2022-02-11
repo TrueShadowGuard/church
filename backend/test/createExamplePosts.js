@@ -13,7 +13,7 @@ export default async function createExamplePosts(count) {
 
   for(let i = 0; i < count; i++) {
     const examplePost = files[i % files.length];
-    const schema = {...examplePost, _id: await getNextCounterValue("posts")};
+    const schema = {...examplePost, id: await getNextCounterValue("posts")};
     await Posts.create(schema);
   }
 }

@@ -26,7 +26,8 @@ const Articles = (props) => {
                      header={post.header}
                      description={post.description}
                      date={post.date}
-                     postId={post._id}
+                     postId={post.id}
+                     key={post.id}
         />
       ))}
     </div>

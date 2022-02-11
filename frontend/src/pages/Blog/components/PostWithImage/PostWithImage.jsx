@@ -11,7 +11,7 @@ const PostWithImage = ({date, image, author, description, header, postId, ...res
     [rest.className]: rest.className,
   });
 
-  const linkUrl = `/posts/${postId}`;
+  const linkUrl = `/post/${postId}`;
 
   return (
     <div className={postClass}>

@@ -16,7 +16,7 @@ const EventWithImage = ({date, place, description, header, poster, id}) => {
   const month = date1.format("MMMM");
   const day = date1.format("D");
 
-  const url = "/sermons/" + id;
+  const url = "/sermon?id=" + id;
 
   return (
     <div className={classes.event}>

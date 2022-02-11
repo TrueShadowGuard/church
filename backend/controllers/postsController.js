@@ -1,4 +1,10 @@
 import Posts from "../db/models/Posts.js";
+import extractProperties from "../utils/objects/extractProperties.js";
+import {
+  extractFilterFromQuery,
+  extractOptionsFromQuery,
+  makePropsRegexSearched
+} from "../utils/controllerHelpers.js";
 
 const MAX_POSTS_PER_REQUEST = 20;
 
@@ -6,29 +12,25 @@ const postsController = {};
 
 postsController.get = async (req, res) => {
   try {
-    let {page, count, ...options} = req.query;
+    let page = req.query.page || 0;
+    let count = req.query.count || 1;
     count = Math.min(MAX_POSTS_PER_REQUEST, count);
-    page = page || 0;
-    count = count || 1;
-    const filter = {};
 
-    if (req.query.id) filter._id = req.query.id;
-    if (req.query.header) filter.header = req.query.header;
+    let filter = extractFilterFromQuery(req.query);
+    filter = makePropsRegexSearched(filter, ["header"]);
 
-    if (options.last === "true") {
-      const previews = await Posts
-        .find({filter})
-        .sort({id: -1})
-        .skip(page * count)
-        .limit(count);
-      res.json(previews);
-      return;
-    }
+    const options = extractOptionsFromQuery(req.query);
 
-    const previews = await Posts.find({}).skip(page * count).limit(count);
-    res.json(previews);
+    const query = Posts.find(filter, {_id: 0});
+    if (options.last === "true") query.sort({_id: -1});
+    const posts = await query
+      .skip(page * count)
+      .limit(count);
 
-  } catch (e) {
+    res.json(posts);
+
+  } catch
+    (e) {
     console.error(e);
     res.status(500).end();
   }

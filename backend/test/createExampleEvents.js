@@ -12,7 +12,7 @@ export default async function createExampleEvents(count) {
         header: "EXAMPLE SERMON" + i,
         description: "lorem ipsum dolor sit amet, consectetur adip",
         date: +date,
-        _id: id,
+        id,
         place: "No 233 Main St. New York,\n United States",
         content
       });

@@ -1,4 +1,5 @@
 import Events from "../db/models/Events.js";
+import {extractFilterFromQuery, extractOptionsFromQuery, makePropsRegexSearched} from "../utils/controllerHelpers.js";
 
 const MAX_EVENTS_PER_REQUEST = 20;
 
@@ -6,18 +7,17 @@ const eventsController = {};
 
 eventsController.get = async (req, res) => {
   try {
-    let {page, count, ...options} = req.query;
+    let page = req.query.page || 0;
+    let count = req.query.count || 1;
     count = Math.min(MAX_EVENTS_PER_REQUEST, count);
-    page = page || 0;
-    count = count || 1;
-    const filter = {};
 
-    if (req.query.id) filter._id = req.query.id;
-    if (req.query.header) filter.header = req.query.header;
+    let filter = extractFilterFromQuery(req.query);
+
+    const options = extractOptionsFromQuery(req.query);
 
     if (options.last === "true") {
       const previews = await Events
-        .find({filter})
+        .find(filter, {_id: 0})
         .sort({id: -1})
         .skip(page * count)
         .limit(count);

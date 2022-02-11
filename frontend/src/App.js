@@ -16,10 +16,10 @@ function App() {
         <Routes>
           <Route path={"/about"} element={<About/>}/>
           <Route path={"/sermons"} element={<Sermons/>}/>
-          <Route path={"/sermons/:id"} element={<Sermon />}/>
+          <Route path={"/sermon"} element={<Sermon />}/>
           <Route path={"/blog"} element={<Blog/>}/>
           <Route path={"/contact"} element={<Contact/>}/>
-          <Route path={"/posts/:id"} element={<Post/>}/>
+          <Route path={"/post"} element={<Post/>}/>
           <Route path={"/*"} element={<Home/>}/>
         </Routes>
     </BrowserRouter>

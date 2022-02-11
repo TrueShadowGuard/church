@@ -13,13 +13,6 @@ import Spinner2 from "../../common-components/Spinner2/Spinner2.jsx";
 import useScrollRestoration from "../../hooks/useScrollRestoration.js";
 
 const Blog = () => {
-
-  // const [posts, setPosts] = useState();
-  // useEffect(() => {
-  //   PostsService
-  //     .getMany({last: true, count: 7})
-  //     .then(response => setPosts(response.data))
-  // }, []);
   useScrollRestoration();
   const {posts, haveMorePosts, getMorePosts, loading} = usePostsPagination({count: 4, last: true});
 
@@ -38,7 +31,7 @@ const Blog = () => {
                            header={mostRecentPost.header}
                            description={mostRecentPost.description}
                            image={mostRecentPost.image}
-                           postId={mostRecentPost._id}
+                           postId={mostRecentPost.id}
             />
           )}
           {!mostRecentPost && <PostWithImageDummy />}
@@ -53,8 +46,8 @@ const Blog = () => {
                            author={post.author}
                            header={post.header}
                            date={post.date}
-                           postId={post._id}
-                           key={post._id}
+                           postId={post.id}
+                           key={post.id}
                            white
               />
             ))}

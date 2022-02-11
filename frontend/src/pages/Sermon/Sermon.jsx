@@ -10,8 +10,10 @@ import Spinner2 from "../../common-components/Spinner2/Spinner2.jsx";
 import clock from "../../images/home/Clock icon.svg";
 import placeImg from "../../images/home/place.svg";
 import dayjs from "dayjs";
+import useScrollRestoration from "../../hooks/useScrollRestoration.js";
 
 const Sermon = () => {
+  useScrollRestoration();
   const params = useParams();
 
   const [event, setEvent] = useState();

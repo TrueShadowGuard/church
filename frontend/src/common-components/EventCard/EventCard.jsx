@@ -19,7 +19,7 @@ const EventCard = ({header, description, date, id, place, ...rest}) => {
   const month = dayjsDate.format("MMMM");
   const day = dayjsDate.format("D");
 
-  const url = "/sermons/" + id;
+  const url = "/sermon?id=" + id;
 
   return (
     <NavLink to={url}>

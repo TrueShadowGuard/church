@@ -30,11 +30,11 @@ app.get("*", (req, res) => {
 async function main() {
   try {
     await mongoose.connect(mongoKey);
-    await resetCounters();
-    await Posts.deleteMany({});
-    await Events.deleteMany({});
-    await createExamplePosts(10);
-    await createExampleEvents(10);
+    // await resetCounters();
+    // await Posts.deleteMany({});
+    // await Events.deleteMany({});
+    // await createExamplePosts(5);
+    // await createExampleEvents(5);
     app.listen(port, () => console.log(`Started at ${port}`));
   } catch (e) {
     console.error(e);
