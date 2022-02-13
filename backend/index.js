@@ -9,20 +9,24 @@ import resetCounters from "./test/dropCounters.js";
 import createExampleEvents from "./test/createExampleEvents.js";
 import createExamplePosts from "./test/createExamplePosts.js";
 import Posts from "./db/models/Posts.js";
+import adminRouter from "./routers/adminRouter/adminRouter.js";
+import authMiddleware from "./middlewares/authMiddleware.js";
 
 dotenv.config();
 const app = express();
 
 const __dirname = path.resolve();
 const buildPath = path.join(path.join(__dirname, "..", "frontend", "build"));
+console.log("buildPath", buildPath);
 const port = process.env.PORT || 4000;
 const mongoKey = process.env.MONGO;
 
 
 app.use("/posts", postsRouter);
 app.use("/events", eventsRouter);
+app.use("/admin", authMiddleware, adminRouter);
 
-app.use(express.static(path.join(buildPath, "static")));
+app.use(express.static(path.join(buildPath)));
 app.get("*", (req, res) => {
   res.sendFile(path.join(buildPath, "index.html"));
 });

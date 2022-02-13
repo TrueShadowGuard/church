@@ -69,7 +69,7 @@ const Home = () => {
         </Container>
 
         <Container>
-          <Link className={classes.link1} href={"/"} text={"View all Sermons"} />
+          <Link className={classes.link1} href={"/sermons"} text={"View all Sermons"} />
         </Container>
 
         <BgImage2 />
